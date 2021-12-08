@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Annoying webpage</title>
+</head>
+
+<body>
+
+<p>Don't click anywhere</p>
+
+<script>
+document.addEventListener("click", loopAlert);
+document.addEventListener("mouseover", openWindow);
+document.addEventListener("mouseout", focusWindows);
+function loopAlert() {
+    while (true) {
+    	window.alert('not glad to see you trap here') }
+}
+function openWindow() {
+    const win = window.open('', '','width=100,height=100')
+    let i = 0
+    setInterval(() => {
+        win.moveTo(i, i)
+        i = (i + 5) % 200
+    }, 100)
+}
+function focusWindows() {
+    const win = window.open('', '','width=200,height=200')
+    window.forEach(win => {
+    	if (!window.closed) window.focus()
+    })
+}
+</script>
+
+</body>
+</html>
